@@ -1,7 +1,7 @@
 <!-- User Id Field -->
 <div class="col-sm-12">
-    {!! Form::label('user_id', 'User Id:') !!}
-    <p>{{ $post->user_id }}</p>
+    {!! Form::label('user_name', 'User Name:') !!}
+    <p>{{ $post->user->name }}</p>
 </div>
 
 <!-- Title Field -->
