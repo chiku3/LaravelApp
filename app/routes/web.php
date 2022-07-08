@@ -28,7 +28,7 @@ Route::get('/user/show', [App\Http\Controllers\UserController::class, 'show'])
 Route::get('/user/edit', [App\Http\Controllers\UserController::class, 'edit'])
 ->middleware('auth')->name('user.edit');
 Route::patch('/user/update', [App\Http\Controllers\UserController::class, 'update'])
-->middleware('update')->name('user.update');
+->middleware('auth')->name('user.update');
 
 
 
