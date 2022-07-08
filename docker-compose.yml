@@ -17,11 +17,12 @@ services:
       - mysql
   mysql:
     image: mysql:5.7
+    platform: linux/amd64
     environment:
-      MYSQL_DATABASE: ****
-      MYSQL_USER: ****
-      MYSQL_PASSWORD: ****
-      MYSQL_ROOT_PASSWORD: ****
+      MYSQL_DATABASE: common
+      MYSQL_USER: chiku
+      MYSQL_PASSWORD: chiku
+      MYSQL_ROOT_PASSWORD: chiku
     ports:
       - "3306:3306"
     volumes:
