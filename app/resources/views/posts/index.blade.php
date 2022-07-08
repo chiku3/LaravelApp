@@ -10,10 +10,10 @@
 
                 <div class="col-sm-4">
                     <form method="GET" action="{{ route('posts.index') }}">
-                        <div class="flex-row">
+                        <div class="d-flex flex-row float-right">
                             <input type="search" name="search" value="@if (isset($search)) {{ $search }} @endif">
                                 {{-- <a href="{{ route('posts.index') }}" class="btn btn-sm btn-success float-right">Clear</a> --}}
-                                <button type="submit" class="btn btn-sm btn-success float-right" >Search</button>
+                                <button type="submit" class="btn btn-sm btn-outline-success float-right ml-1" >Search</button>
                         </div>
                     </form>
                 </div>

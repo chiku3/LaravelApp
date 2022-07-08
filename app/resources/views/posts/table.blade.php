@@ -3,8 +3,8 @@
         <thead>
         <tr>
             <th>User Name</th>
-        <th>Title</th>
-            <th colspan="3">Action</th>
+            <th>Title</th>
+            <th colspan="2">Action</th>
         </tr>
         </thead>
         <tbody>
@@ -17,13 +17,9 @@
                 </td>
                 <td width="120">
                     {!! Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'delete']) !!}
-                    <div class='btn-group'>
-                        <a href="{{ route('posts.show', [$post->id]) }}"
-                        class='btn btn-default btn-xs'>
-                            <i class="far fa-eye"></i>
-                        </a>
+                    <div>
                         <a href="{{ route('posts.edit', [$post->id]) }}"
-                        class='btn btn-default btn-xs'>
+                        class='btn btn-default btn-xs mr-2'>
                             <i class="far fa-edit"></i>
                         </a>
                         {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
