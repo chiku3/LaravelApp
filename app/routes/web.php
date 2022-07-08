@@ -32,4 +32,3 @@ Route::patch('/user/update', [App\Http\Controllers\UserController::class, 'updat
 
 
 
-

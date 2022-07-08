@@ -7,9 +7,22 @@
                 <div class="col-sm-6">
                     <h1>Posts</h1>
                 </div>
+
+                <form method="GET" action="{{ route('posts.index') }}">
+                    <input type="search" name="search" value="@if (isset($search)) {{ $search }} @endif">
+                    <div>
+                        <button type="submit">Search</button>
+                        <button>
+                            <a href="{{ route('posts.index') }}" class="text-white">
+                                clear
+                            </a>
+                        </button>
+                    </div>
+                </form>
+
                 <div class="col-sm-6">
                     <a class="btn btn-primary float-right"
-                       href="{{ route('posts.create') }}">
+                    href="{{ route('posts.create') }}">
                         Add New
                     </a>
                 </div>
@@ -29,7 +42,7 @@
 
                 <div class="card-footer clearfix">
                     <div class="float-right">
-                        
+
                     </div>
                 </div>
             </div>

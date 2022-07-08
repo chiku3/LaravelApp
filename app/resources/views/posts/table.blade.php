@@ -11,7 +11,10 @@
         @foreach($posts as $post)
             <tr>
                 <td>{{ $post->user->name }}</td>
-            <td>{{ $post->title }}</td>
+                <td>
+                <a href="{{ route('posts.show', [$post->id]) }}">
+                    {{ $post->title }}
+                </td>
                 <td width="120">
                     {!! Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

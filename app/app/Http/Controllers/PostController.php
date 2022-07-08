@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Post;
+
 
 class PostController extends AppBaseController
 {
@@ -30,10 +32,31 @@ class PostController extends AppBaseController
      */
     public function index(Request $request)
     {
+        // $posts = $this->postRepository->all();
+
+        // return view('posts.index')
+        //     ->with('posts', $posts);
+
         $posts = $this->postRepository->all();
+        $search = $request->input('search');
+        $query = Post::query();
+
+        if ($search) {
+            $spaceConversion = mb_convert_kana($search, 's');
+            $wordArraySearched = preg_split('/[\s,]+/', $spaceConversion, -1, PREG_SPLIT_NO_EMPTY);
+            foreach($wordArraySearched as $value) {
+                $query->where('title', 'like', '%'.$value.'%');
+            }
+
+            $posts = $query->paginate(20);
+        }
 
         return view('posts.index')
-            ->with('posts', $posts);
+            ->with([
+                'posts' => $posts,
+                'search' => $search,
+            ]);
+
     }
 
     /**
