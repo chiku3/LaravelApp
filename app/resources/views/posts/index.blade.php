@@ -8,19 +8,17 @@
                     <h1>Posts</h1>
                 </div>
 
-                <form method="GET" action="{{ route('posts.index') }}">
-                    <input type="search" name="search" value="@if (isset($search)) {{ $search }} @endif">
-                    <div>
-                        <button type="submit">Search</button>
-                        <button>
-                            <a href="{{ route('posts.index') }}" class="text-white">
-                                clear
-                            </a>
-                        </button>
-                    </div>
-                </form>
+                <div class="col-sm-4">
+                    <form method="GET" action="{{ route('posts.index') }}">
+                        <div class="flex-row">
+                            <input type="search" name="search" value="@if (isset($search)) {{ $search }} @endif">
+                                {{-- <a href="{{ route('posts.index') }}" class="btn btn-sm btn-success float-right">Clear</a> --}}
+                                <button type="submit" class="btn btn-sm btn-success float-right" >Search</button>
+                        </div>
+                    </form>
+                </div>
 
-                <div class="col-sm-6">
+                <div class="col-sm-2">
                     <a class="btn btn-primary float-right"
                     href="{{ route('posts.create') }}">
                         Add New
