@@ -5,6 +5,7 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 
 /**
  * Class Post
@@ -22,7 +23,7 @@ class Post extends Model
     use HasFactory;
 
     public $table = 'posts';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -50,10 +51,14 @@ class Post extends Model
      * @var array
      */
     public static $rules = [
-        'user_id' => 'required|numeric',
         'title' => 'required',
         'content' => 'required'
     ];
 
-    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
+
+

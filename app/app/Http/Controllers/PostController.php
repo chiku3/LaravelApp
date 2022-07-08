@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends AppBaseController
 {
@@ -57,7 +58,6 @@ class PostController extends AppBaseController
         $input = $request->all();
         $user_id = Auth::id();
         $input['user_id'] = $user_id;
-
 
         $post = $this->postRepository->create($input);
 

@@ -2,7 +2,7 @@
     <table class="table" id="posts-table">
         <thead>
         <tr>
-            <th>User Id</th>
+            <th>User Name</th>
         <th>Title</th>
             <th colspan="3">Action</th>
         </tr>
@@ -10,7 +10,7 @@
         <tbody>
         @foreach($posts as $post)
             <tr>
-                <td>{{ $post->user_id }}</td>
+                <td>{{ $post->user->name }}</td>
             <td>{{ $post->title }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'delete']) !!}
